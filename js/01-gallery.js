@@ -26,7 +26,8 @@ function createMarkup(param) {
 };
 
 function openModal(evt) {
-    evt.preventDefault();
+    if (evt.target !== evt.currentTarget) {
+        evt.preventDefault();
     const target = evt.target;
     const img = target.dataset.source;
     const alt = target.alt
@@ -41,6 +42,7 @@ function openModal(evt) {
             }
     })
     instance.show();
+    };
 };
 
 function modalEscClose(evt) {
